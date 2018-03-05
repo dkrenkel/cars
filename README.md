@@ -1,5 +1,5 @@
-# cars-api
+# support-api
 
-Cars API that allows creating, editing and deleting cars and their drivers.
+Support API that allows creating, editing and deleting entities.
 
 //describe bellow the available operations.
