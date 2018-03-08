@@ -3,19 +3,19 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>br.com.cars</groupId>
-	<artifactId>cars</artifactId>
+	<groupId>br.com.support</groupId>
+	<artifactId>support</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
-	<name>cars</name>
-	<description>Cars API Project</description>
+	<name>support</name>
+	<description>support API Project</description>
 
 	<modules>
-		<module>cars-model</module>
-		<module>cars-core</module>
-		<module>cars-business</module>
-		<module>cars-api</module>
+		<module>support-model</module>
+		<module>support-core</module>
+		<module>support-business</module>
+		<module>support-api</module>
 	</modules>
 
 	<parent>
@@ -28,10 +28,10 @@
 		<project.encoding>UTF-8</project.encoding>
 		<java.version>1.8</java.version>
 
-		<modules.groupid>br.com.cars</modules.groupid>
-		<cars.version>1.0-SNAPSHOT</cars.version>
-		<cars-model.version>1.0-SNAPSHOT</cars-model.version>
-		<cars-core.version>1.0-SNAPSHOT</cars-core.version>
+		<modules.groupid>br.com.support</modules.groupid>
+		<support.version>1.0-SNAPSHOT</support.version>
+		<support-model.version>1.0-SNAPSHOT</support-model.version>
+		<support-core.version>1.0-SNAPSHOT</support-core.version>
 
 		<slf4j.api.version>1.7.21</slf4j.api.version>
 		<slf4j.simple.version>1.7.12</slf4j.simple.version>
