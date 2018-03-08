@@ -5,7 +5,7 @@ package br.com.support.business.facade;
 
 import java.util.List;
 
-import br.com.support.business.dto.CarDTO;
+import br.com.support.business.dto.ClientDTO;
 import br.com.support.business.error.EntityNotFoundException;
 import br.com.support.business.error.ExistingEntityException;
 
@@ -16,7 +16,7 @@ import br.com.support.business.error.ExistingEntityException;
  * @author David Krenkel <david.melo1992@gmail.com>
  *
  */
-public interface CarFacadeable {
+public interface ClientFacadeable {
 
 	/**
 	 * Saves a new car into the databse
@@ -26,7 +26,7 @@ public interface CarFacadeable {
 	 * @throws ExistingEntityException
 	 *             When the given car already exsists
 	 */
-	public void saveCar(CarDTO car) throws ExistingEntityException;
+	public void saveCar(ClientDTO car) throws ExistingEntityException;
 
 	/**
 	 * Saves a list of cars into the databse
@@ -36,7 +36,7 @@ public interface CarFacadeable {
 	 * @throws ExistingEntityException
 	 *             When any of the given cars already exsists
 	 */
-	public void saveCars(List<CarDTO> cars) throws ExistingEntityException;
+	public void saveCars(List<ClientDTO> cars) throws ExistingEntityException;
 
 	/**
 	 * Updates an existing car
@@ -46,6 +46,6 @@ public interface CarFacadeable {
 	 * @throws EntityNotFoundException
 	 *             When the given car can't be found
 	 */
-	public void updateCar(CarDTO car) throws EntityNotFoundException;
+	public void updateCar(ClientDTO car) throws EntityNotFoundException;
 
 }

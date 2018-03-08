@@ -15,8 +15,8 @@ import javax.persistence.Table;
  *
  */
 @Entity
-@Table(name = "users")
-public class Car implements BaseEntity<Long> {
+@Table(name = "clients")
+public class Client implements BaseEntity<Long> {
 
 	private static final long serialVersionUID = 1L;
 
@@ -25,9 +25,24 @@ public class Car implements BaseEntity<Long> {
 	@Column(name = "id")
 	private Long id;
 
+	@Column(name = "name", nullable = false, length = 30)
+	private String name;
+
 	@Override
 	public Long getId() {
 		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 }

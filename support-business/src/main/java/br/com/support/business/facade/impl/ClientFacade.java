@@ -11,45 +11,45 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import br.com.support.business.dto.CarDTO;
+import br.com.support.business.dto.ClientDTO;
 import br.com.support.business.error.EntityNotFoundException;
 import br.com.support.business.error.ExistingEntityException;
-import br.com.support.business.facade.CarFacadeable;
-import br.com.support.business.mapper.CarMapper;
-import br.com.support.core.repository.CarRepository;
-import br.com.support.model.Car;
+import br.com.support.business.facade.ClientFacadeable;
+import br.com.support.business.mapper.ClientMapper;
+import br.com.support.core.repository.ClientRepository;
+import br.com.support.model.Client;
 
 /**
  * @author David Krenkel <david.melo1992@gmail.com>
  *
  */
 @Service
-public class CarFacade implements CarFacadeable {
+public class ClientFacade implements ClientFacadeable {
 
 	@Resource
-	private CarRepository userRepository;
+	private ClientRepository clientRepository;
 
 	@Autowired
-	private CarMapper carMapper;
+	private ClientMapper carMapper;
 
 	@Override
-	public void saveCar(CarDTO carrDTO) throws ExistingEntityException {
+	public void saveCar(ClientDTO carrDTO) throws ExistingEntityException {
 		//TODO check if the car already exists
-		Car car = null;
-		if (car != null) {
+		Client client = null;
+		if (client != null) {
 			throw new ExistingEntityException("Entity already exists");
 		}
-		this.userRepository.save(this.carMapper.map(carrDTO));
+		this.clientRepository.save(this.carMapper.map(carrDTO));
 	}
 	
 	@Override
 	@Transactional
-	public void saveCars(List<CarDTO> usersDTO) throws ExistingEntityException {
+	public void saveCars(List<ClientDTO> usersDTO) throws ExistingEntityException {
 		//TODO implement
 	}
 
 	@Override
-	public void updateCar(CarDTO userDTO) throws EntityNotFoundException {
+	public void updateCar(ClientDTO userDTO) throws EntityNotFoundException {
 		//TODO implement
 	}
 

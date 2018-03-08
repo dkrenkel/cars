@@ -5,24 +5,24 @@ package br.com.support.business.mapper;
 
 import org.springframework.stereotype.Component;
 
-import br.com.support.business.dto.CarDTO;
-import br.com.support.model.Car;
+import br.com.support.business.dto.ClientDTO;
+import br.com.support.model.Client;
 
 /**
  * @author David Krenkel <david.melo1992@gmail.com>
  *
  */
 @Component
-public class CarMapper implements Mappeable<Car, CarDTO> {
+public class ClientMapper implements Mappeable<Client, ClientDTO> {
 
 	@Override
-	public Car map(CarDTO dto) {
+	public Client map(ClientDTO dto) {
 		//TODO implement mapper
 		return null;
 	}
 	
 	@Override
-	public CarDTO map(Car entity) {
+	public ClientDTO map(Client entity) {
 		//TODO implement mapper
 		return null;
 	}
