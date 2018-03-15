@@ -30,26 +30,20 @@ public class ClientFacade implements ClientFacadeable {
 	private ClientRepository clientRepository;
 
 	@Autowired
-	private ClientMapper carMapper;
+	private ClientMapper clientMapper;
 
 	@Override
-	public void saveCar(ClientDTO carrDTO) throws ExistingEntityException {
-		//TODO check if the car already exists
+	public void saveClient(ClientDTO clientDTO) throws ExistingEntityException {
+		//TODO check if the client already exists
 		Client client = null;
 		if (client != null) {
 			throw new ExistingEntityException("Entity already exists");
 		}
-		this.clientRepository.save(this.carMapper.map(carrDTO));
-	}
-	
-	@Override
-	@Transactional
-	public void saveCars(List<ClientDTO> usersDTO) throws ExistingEntityException {
-		//TODO implement
+		this.clientRepository.save(this.clientMapper.map(clientDTO));
 	}
 
 	@Override
-	public void updateCar(ClientDTO userDTO) throws EntityNotFoundException {
+	public void updateClient(ClientDTO clientDTO) throws EntityNotFoundException {
 		//TODO implement
 	}
 
