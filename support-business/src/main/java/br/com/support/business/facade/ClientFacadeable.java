@@ -19,33 +19,23 @@ import br.com.support.business.error.ExistingEntityException;
 public interface ClientFacadeable {
 
 	/**
-	 * Saves a new car into the databse
+	 * Saves a new client into the databse
 	 * 
-	 * @param carDTO
-	 *            The car to be created
+	 * @param client
+	 *            The client to be created
 	 * @throws ExistingEntityException
-	 *             When the given car already exsists
+	 *             When the given client already exsists
 	 */
-	public void saveCar(ClientDTO car) throws ExistingEntityException;
+	public void saveClient(ClientDTO clientDTO) throws ExistingEntityException;
 
 	/**
-	 * Saves a list of cars into the databse
+	 * Updates an existing client
 	 * 
-	 * @param cars
-	 *            The list of cars to be created
-	 * @throws ExistingEntityException
-	 *             When any of the given cars already exsists
-	 */
-	public void saveCars(List<ClientDTO> cars) throws ExistingEntityException;
-
-	/**
-	 * Updates an existing car
-	 * 
-	 * @param car
-	 *            The car to be updated
+	 * @param client
+	 *            The client to be updated
 	 * @throws EntityNotFoundException
-	 *             When the given car can't be found
+	 *             When the given client can't be found
 	 */
-	public void updateCar(ClientDTO car) throws EntityNotFoundException;
+	public void updateClient(ClientDTO clientDTO) throws EntityNotFoundException;
 
 }
