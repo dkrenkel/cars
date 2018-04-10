@@ -3,6 +3,7 @@
  */
 package br.com.support.business.facade.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -44,7 +45,20 @@ public class ClientFacade implements ClientFacadeable {
 
 	@Override
 	public void updateClient(ClientDTO clientDTO) throws EntityNotFoundException {
-		//TODO implement
+		Client client = this.clientRepository.findOne(clientDTO.getId());
+		if (client == null) {
+			throw new EntityNotFoundException("Entity does not exist");
+		}
+		this.clientRepository.saveAndFlush(this.clientMapper.map(clientDTO));
+		
 	}
-
+	
+	@Override
+	public List<ClientDTO> findAll(){
+		List<ClientDTO> list = new ArrayList<ClientDTO>();
+		for(Client c : this.clientRepository.findAll()) {
+			list.add(clientMapper.map(c));
+		}
+		return list; 
+	}
 }

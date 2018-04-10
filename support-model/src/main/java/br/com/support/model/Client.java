@@ -15,7 +15,7 @@ import javax.persistence.Table;
  *
  */
 @Entity
-@Table(name = "clients")
+@Table(name = "client")
 public class Client implements BaseEntity<Long> {
 
 	private static final long serialVersionUID = 1L;

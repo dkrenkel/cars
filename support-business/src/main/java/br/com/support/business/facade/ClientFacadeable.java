@@ -19,12 +19,12 @@ import br.com.support.business.error.ExistingEntityException;
 public interface ClientFacadeable {
 
 	/**
-	 * Saves a new client into the databse
+	 * Saves a new client into the database
 	 * 
 	 * @param client
 	 *            The client to be created
 	 * @throws ExistingEntityException
-	 *             When the given client already exsists
+	 *             When the given client already exists
 	 */
 	public void saveClient(ClientDTO clientDTO) throws ExistingEntityException;
 
@@ -37,5 +37,7 @@ public interface ClientFacadeable {
 	 *             When the given client can't be found
 	 */
 	public void updateClient(ClientDTO clientDTO) throws EntityNotFoundException;
+
+	public List<ClientDTO> findAll();
 
 }
