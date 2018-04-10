@@ -9,6 +9,7 @@ import java.util.List;
 import javax.annotation.Resource;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -34,13 +35,13 @@ public class ClientFacade implements ClientFacadeable {
 	private ClientMapper clientMapper;
 
 	@Override
-	public void saveClient(ClientDTO clientDTO) throws ExistingEntityException {
-		//TODO check if the client already exists
-		Client client = null;
+	public ClientDTO saveClient(ClientDTO clientDTO) throws ExistingEntityException {
+		Example<Client> example = Example.of(this.clientMapper.map(clientDTO));
+		Client client = this.clientRepository.findOne(example);
 		if (client != null) {
 			throw new ExistingEntityException("Entity already exists");
 		}
-		this.clientRepository.save(this.clientMapper.map(clientDTO));
+		return this.clientMapper.map(this.clientRepository.save(this.clientMapper.map(clientDTO)));
 	}
 
 	@Override
