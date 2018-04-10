@@ -52,13 +52,13 @@ public class ClientController {
 			this.clientFacade.updateClient(client);
 		} catch (EntityNotFoundException e) {
 			LOGGER.warn("M=updateClient, client does not exist");
-			return ResponseEntity.status(HttpStatus.CONFLICT).build();
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
 		}
-		return new ResponseEntity<ClientDTO>(client, HttpStatus.CREATED);
+		return new ResponseEntity<ClientDTO>(client, HttpStatus.OK);
 	}
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public List<ClientDTO> findAll() {
-		return this.clientFacade.findAll();
+	public ResponseEntity<?> findAll() {
+		return new ResponseEntity<List<ClientDTO>>(this.clientFacade.findAll(), HttpStatus.OK);
 	}
 }
