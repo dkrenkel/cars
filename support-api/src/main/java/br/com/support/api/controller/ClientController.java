@@ -26,7 +26,7 @@ import br.com.support.business.facade.ClientFacadeable;
  *
  */
 @RestController
-@RequestMapping("clients")
+@RequestMapping("/clients")
 public class ClientController {
 	
 	private static final Logger LOGGER = LogManager.getLogger(ClientController.class);
