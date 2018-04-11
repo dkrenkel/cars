@@ -3,11 +3,14 @@
  */
 package br.com.support.model;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -27,6 +30,9 @@ public class Client implements BaseEntity<Long> {
 
 	@Column(name = "name", nullable = false, length = 30)
 	private String name;
+	
+	@OneToMany(mappedBy = "client")
+	private List<Ticket> tickets;
 
 	@Override
 	public Long getId() {
