@@ -62,4 +62,12 @@ public class ClientFacade implements ClientFacadeable {
 		}
 		return list; 
 	}
+
+	@Override
+	public ClientDTO findOne(long id) {
+		this.clientRepository.findOne(id);
+		return null;
+	}
+	
+	
 }

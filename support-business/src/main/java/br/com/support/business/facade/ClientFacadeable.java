@@ -42,4 +42,6 @@ public interface ClientFacadeable {
 
 	public List<ClientDTO> findAll();
 
+	public ClientDTO findOne(long id);
+
 }

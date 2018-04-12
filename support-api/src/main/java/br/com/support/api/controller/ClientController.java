@@ -62,4 +62,10 @@ public class ClientController {
 	public ResponseEntity<?> findAll() {
 		return new ResponseEntity<List<ClientDTO>>(this.clientFacade.findAll(), HttpStatus.OK);
 	}
+	
+	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
+	public ResponseEntity<?> findOne(@PathVariable long id) {
+		return new ResponseEntity<ClientDTO>(this.clientFacade.findOne(id), HttpStatus.OK);
+	}
+	
 }
