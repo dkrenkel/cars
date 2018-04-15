@@ -3,12 +3,7 @@
  */
 package br.com.support.business.facade;
 
-import java.util.List;
-
 import br.com.support.business.dto.ClientDTO;
-import br.com.support.business.error.EntityNotFoundException;
-import br.com.support.business.error.ExistingEntityException;
-import br.com.support.model.Client;
 
 /**
  * Business Interface responsible for defining an abstract contract for business
@@ -17,31 +12,6 @@ import br.com.support.model.Client;
  * @author David Krenkel <david.melo1992@gmail.com>
  *
  */
-public interface ClientFacadeable {
-
-	/**
-	 * Saves a new client into the database
-	 * 
-	 * @param client
-	 *            The client to be created
-	 * @return 
-	 * @throws ExistingEntityException
-	 *             When the given client already exists
-	 */
-	public ClientDTO saveClient(ClientDTO clientDTO) throws ExistingEntityException;
-
-	/**
-	 * Updates an existing client
-	 * 
-	 * @param client
-	 *            The client to be updated
-	 * @throws EntityNotFoundException
-	 *             When the given client can't be found
-	 */
-	public void updateClient(ClientDTO clientDTO) throws EntityNotFoundException;
-
-	public List<ClientDTO> findAll();
-
-	public ClientDTO findOne(long id);
+public interface ClientFacadeable extends CrudFacadeable<ClientDTO>{
 
 }

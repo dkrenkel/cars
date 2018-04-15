@@ -39,7 +39,7 @@ public class ClientController {
 		LOGGER.info("M=createClient");
 		ClientDTO savedClient = null;
 		try {
-			savedClient = this.clientFacade.saveClient(client);
+			savedClient = this.clientFacade.save(client);
 		} catch (ExistingEntityException e) {
 			LOGGER.warn("M=createClient, client already exists");
 			return ResponseEntity.status(HttpStatus.CONFLICT).build();
@@ -50,7 +50,7 @@ public class ClientController {
 	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
 	public ResponseEntity<?> updateClient(@PathVariable long id, @RequestBody final ClientDTO client){
 		try {
-			this.clientFacade.updateClient(client);
+			this.clientFacade.update(id, client);
 		} catch (EntityNotFoundException e) {
 			LOGGER.warn("M=updateClient, client does not exist");
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
@@ -65,7 +65,11 @@ public class ClientController {
 	
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	public ResponseEntity<?> findOne(@PathVariable long id) {
-		return new ResponseEntity<ClientDTO>(this.clientFacade.findOne(id), HttpStatus.OK);
+		try {
+			return new ResponseEntity<ClientDTO>(this.clientFacade.findOne(id), HttpStatus.OK);
+		} catch (EntityNotFoundException e) {
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+		}
 	}
 	
 }
