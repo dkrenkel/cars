@@ -58,6 +58,17 @@ public class ClientController {
 		return new ResponseEntity<ClientDTO>(client, HttpStatus.OK);
 	}
 	
+	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+	public ResponseEntity<?> deleteClient(@PathVariable long id){
+		try {
+			this.clientFacade.delete(id);
+		} catch (EntityNotFoundException e) {
+			LOGGER.warn("M=deleteClient, client does not exist");
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+		}
+		return ResponseEntity.status(HttpStatus.OK).build();
+	}
+	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public ResponseEntity<?> findAll() {
 		return new ResponseEntity<List<ClientDTO>>(this.clientFacade.findAll(), HttpStatus.OK);

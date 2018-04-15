@@ -17,7 +17,7 @@ public interface CrudFacadeable<DTO extends Transferable> {
 	
 	public Transferable update(long id, DTO dto) throws EntityNotFoundException;
 	
-	public void delete(DTO dto) throws EntityNotFoundException;
+	public void delete(long id) throws EntityNotFoundException;
 	
 	public DTO findOne(long id) throws EntityNotFoundException;
 	

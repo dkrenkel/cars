@@ -55,9 +55,8 @@ public abstract class CrudFacade<DTO extends Transferable,
 	}
 
 	@Override
-	public void delete(DTO dto) throws EntityNotFoundException {
-		
-		this.repository.delete(mapper.map(dto));
+	public void delete(long id) throws EntityNotFoundException {
+		this.repository.delete(id);
 	}
 
 	@Override
