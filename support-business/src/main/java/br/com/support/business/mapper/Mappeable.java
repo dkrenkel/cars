@@ -10,7 +10,7 @@ import br.com.support.model.BaseEntity;
  * @author David Krenkel <david.melo1992@gmail.com>
  *
  */
-public interface Mappeable<MODEL extends BaseEntity, DTO extends Transferable> {
+public interface Mappeable<MODEL extends BaseEntity<?>, DTO extends Transferable> {
 	
 	/**
 	 * Converts a transferable object into an entity object
