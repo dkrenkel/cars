@@ -8,6 +8,7 @@ import java.util.List;
 import br.com.support.business.dto.ClientDTO;
 import br.com.support.business.error.EntityNotFoundException;
 import br.com.support.business.error.ExistingEntityException;
+import br.com.support.model.Client;
 
 /**
  * Business Interface responsible for defining an abstract contract for business
@@ -23,10 +24,11 @@ public interface ClientFacadeable {
 	 * 
 	 * @param client
 	 *            The client to be created
+	 * @return 
 	 * @throws ExistingEntityException
 	 *             When the given client already exists
 	 */
-	public void saveClient(ClientDTO clientDTO) throws ExistingEntityException;
+	public ClientDTO saveClient(ClientDTO clientDTO) throws ExistingEntityException;
 
 	/**
 	 * Updates an existing client

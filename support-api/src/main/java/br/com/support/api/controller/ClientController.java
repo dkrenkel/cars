@@ -37,13 +37,14 @@ public class ClientController {
 	@RequestMapping(value = "/", method = RequestMethod.POST)
 	public ResponseEntity<?> createClient(@RequestBody final ClientDTO client) {
 		LOGGER.info("M=createClient");
+		ClientDTO savedClient = null;
 		try {
-			this.clientFacade.saveClient(client);
+			savedClient = this.clientFacade.saveClient(client);
 		} catch (ExistingEntityException e) {
 			LOGGER.warn("M=createClient, client already exists");
 			return ResponseEntity.status(HttpStatus.CONFLICT).build();
 		}
-		return new ResponseEntity<ClientDTO>(client, HttpStatus.CREATED);
+		return new ResponseEntity<ClientDTO>(savedClient, HttpStatus.CREATED);
 	}
 	
 	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
