@@ -8,7 +8,6 @@ import java.util.List;
 import br.com.support.business.dto.ClientDTO;
 import br.com.support.business.error.EntityNotFoundException;
 import br.com.support.business.error.ExistingEntityException;
-import br.com.support.model.Client;
 
 /**
  * Business Interface responsible for defining an abstract contract for business
