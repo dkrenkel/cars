@@ -11,6 +11,7 @@ import javax.annotation.Resource;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.stereotype.Service;
@@ -69,6 +70,7 @@ public class ClientFacade implements ClientFacadeable {
 	}
 	
 	@Override
+	@Cacheable("clients")
 	public List<ClientDTO> findAll(){
 		LOGGER.info(String.format("m=findAll, clients"));
 		List<ClientDTO> list = new ArrayList<ClientDTO>();
